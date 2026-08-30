@@ -1,8 +1,19 @@
-import React from 'react';
-import Script from 'next/script';
+"use client";
+
+import React, { useEffect } from 'react';
 import { Calendar, Gift, ShoppingBag, Utensils } from 'lucide-react';
 
 export const Events: React.FC = () => {
+  useEffect(() => {
+    // Load Elfsight script safely on the client side only
+    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
+      const script = document.createElement('script');
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const annualEvents = [
     {
       title: "Calendário Solidário",
@@ -54,7 +65,7 @@ export const Events: React.FC = () => {
 
         {/* Espelhamento do Instagram / Últimas Ações */}
         <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 flex items-center gap-3">
                 <svg className="text-primary w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -76,9 +87,10 @@ export const Events: React.FC = () => {
 
           {/* Container do Feed (Widget) */}
           <div className="w-full min-h-[400px] bg-white rounded-xl border border-gray-200 flex flex-col items-center justify-center p-8 text-center shadow-inner">
-            {/* Elfsight Instagram Feed */}
-            <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-            <div className="elfsight-app-17ed3790-a6b2-4d4e-af7e-b8b18f154636 w-full" data-elfsight-app-lazy="true"></div>
+            <div 
+              className="elfsight-app-17ed3790-a6b2-4d4e-af7e-b8b18f154636 w-full" 
+              data-elfsight-app-lazy="true"
+            ></div>
           </div>
         </div>
 
