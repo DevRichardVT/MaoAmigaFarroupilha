@@ -615,6 +615,10 @@
     height: calc(var(--spacing) * 8);
   }
 
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
@@ -759,12 +763,20 @@
     flex-direction: column;
   }
 
+  .flex-row {
+    flex-direction: row;
+  }
+
   .flex-wrap {
     flex-wrap: wrap;
   }
 
   .items-center {
     align-items: center;
+  }
+
+  .items-start {
+    align-items: flex-start;
   }
 
   .justify-between {
@@ -777,6 +789,10 @@
 
   .justify-items-center {
     justify-items: center;
+  }
+
+  .gap-1 {
+    gap: var(--spacing);
   }
 
   .gap-1\.5 {
@@ -967,6 +983,16 @@
     background-color: var(--color-gray-50);
   }
 
+  .bg-gray-50\/80 {
+    background-color: #f9fafbcc;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/80 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 80%, transparent);
+    }
+  }
+
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
@@ -1120,6 +1146,10 @@
 
   .p-10 {
     padding: calc(var(--spacing) * 10);
+  }
+
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
   }
 
   .px-3 {
@@ -1280,6 +1310,10 @@
   .tracking-widest {
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
+  }
+
+  .whitespace-nowrap {
+    white-space: nowrap;
   }
 
   .text-gray-400 {
@@ -1472,6 +1506,10 @@
       background-color: var(--color-gray-50);
     }
 
+    .hover\:bg-gray-200:hover {
+      background-color: var(--color-gray-200);
+    }
+
     .hover\:bg-primary:hover {
       background-color: var(--color-primary);
     }
@@ -1549,6 +1587,10 @@
       display: none;
     }
 
+    .md\:h-12 {
+      height: calc(var(--spacing) * 12);
+    }
+
     .md\:h-36 {
       height: calc(var(--spacing) * 36);
     }
@@ -1581,8 +1623,16 @@
       flex-direction: row;
     }
 
+    .md\:items-center {
+      align-items: center;
+    }
+
     .md\:items-start {
       align-items: flex-start;
+    }
+
+    .md\:gap-4 {
+      gap: calc(var(--spacing) * 4);
     }
 
     .md\:gap-12 {
@@ -1605,8 +1655,17 @@
       padding: calc(var(--spacing) * 16);
     }
 
+    .md\:py-4 {
+      padding-block: calc(var(--spacing) * 4);
+    }
+
     .md\:text-left {
       text-align: left;
+    }
+
+    .md\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
 
     .md\:text-3xl {
@@ -1669,6 +1728,15 @@
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @property --tw-rotate-x {
