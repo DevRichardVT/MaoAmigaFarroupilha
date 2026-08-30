@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F05D23;
+  --color-primary-dark: #D44D1A;
+  --color-secondary: #B1D235; /* Verde limão clássico da logo/pdf */
+  --color-secondary-dark: #8BA826;
+  --color-tertiary: #C24F3F; /* Vermelho/telha do PDF */
+  --color-tertiary-dark: #A13D2F;
+  --color-text: #333333;
+  --color-background: #F9FAFB;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-800 bg-gray-50;
+  }
+}
